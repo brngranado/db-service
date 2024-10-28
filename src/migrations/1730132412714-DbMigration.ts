@@ -66,7 +66,15 @@ export class DbMigration1730132412714 implements MigrationInterface {
           },
           {
             name: 'phone',
-            type: 'int',
+            type: 'varchar',
+          },
+          {
+            name: 'created_at',
+            type: 'varchar',
+          },
+          {
+            name: 'type',
+            type: 'varchar',
           },
         ],
       }),
@@ -98,7 +106,7 @@ export class DbMigration1730132412714 implements MigrationInterface {
           },
           {
             name: 'phone',
-            type: 'int',
+            type: 'varchar',
           },
         ],
       }),

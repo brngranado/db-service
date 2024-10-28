@@ -6,11 +6,17 @@ export class Wallet {
   id: number;
 
   @Column()
-  document: string;
+  document: number;
 
   @Column()
   phone: string;
 
   @Column()
   amount: number;
+
+  @Column()
+  created_at: string;
+
+  @Column()
+  type: string;
 }
