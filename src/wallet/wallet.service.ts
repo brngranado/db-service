@@ -36,6 +36,28 @@ export class WalletService {
     });
     return this.walletRepository.save(wallet);
   }
+
+  async createExpense(createWalletDto: CreateWalletDto) {
+    const user = await this.usersRepository.findOne({
+      where: {
+        document: createWalletDto.document,
+        phone: createWalletDto.phone,
+      },
+    });
+
+    if (!user) {
+      return {
+        message: 'User not found',
+        status: 404,
+      };
+    }
+    const wallet = this.walletRepository.create({
+      ...createWalletDto,
+      created_at: new Date().toISOString(),
+      type: 'expense',
+    });
+    return this.walletRepository.save(wallet);
+  }
   async findAll(query: any) {
     const { phone, document } = query;
 

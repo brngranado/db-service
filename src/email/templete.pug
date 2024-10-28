@@ -1,0 +1,19 @@
+doctype html
+html(lang="es")
+  head
+    title Correo de Confirmación de Pago
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  body
+    header
+      h1 Correo de Confirmación de Pago
+      p Verifique el token en la página web.
+
+    main
+      h2 Validación de Confirmación
+      p Para confirmar su pago, por favor ingrese el siguiente token en la página web:
+      div.token
+        strong Token: #{data.token}
+
+    footer
+      p © 2024 Prueba Técnica. Todos los derechos reservados.

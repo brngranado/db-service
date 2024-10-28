@@ -30,7 +30,7 @@ export class DbMigration1730132412714 implements MigrationInterface {
           },
           {
             name: 'user_id',
-            type: 'int',
+            type: 'varchar',
           },
           {
             name: 'token',
@@ -38,7 +38,7 @@ export class DbMigration1730132412714 implements MigrationInterface {
           },
           {
             name: 'created_at',
-            type: 'int',
+            type: 'varchar',
           },
         ],
       }),

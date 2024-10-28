@@ -6,16 +6,16 @@ export class Payment {
   id: number;
 
   @Column()
-  document: string;
+  document: number;
 
   @Column()
   amount: number;
 
   @Column()
-  user_id: number;
+  user_id: string;
 
   @Column()
-  token: string;
+  token: number;
 
   @Column()
   created_at: string;

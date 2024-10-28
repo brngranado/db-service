@@ -23,21 +23,6 @@ export class PaymentController {
 
   @Post('confirm')
   confirm(@Body() confirmPaymentDto: ConfirmPaymentDto) {
-    return this.paymentService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.paymentService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePaymentDto: UpdatePaymentDto) {
-    return this.paymentService.update(+id, updatePaymentDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.paymentService.remove(+id);
+    return this.paymentService.confirm(confirmPaymentDto);
   }
 }

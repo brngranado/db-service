@@ -5,4 +5,8 @@ export class ConfirmPaymentDto {
   @IsNotEmpty()
   @MaxLength(6)
   token: number;
+
+  @IsString()
+  @IsNotEmpty()
+  sessionId: string;
 }

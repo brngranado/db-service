@@ -4,9 +4,30 @@ import { UserModule } from './user/user.module';
 import { PaymentModule } from './payment/payment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
+import { EmailModule } from './email/email.module';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
 
 @Module({
   imports: [
+    MailerModule.forRoot({
+      transport: {
+        host: String(process.env.MAIL_HOST),
+        port: Number(process.env.MAIL_PORT),
+        secure: false,
+        auth: {
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASS,
+        },
+      },
+      template: {
+        dir: __dirname + './template/templete',
+        adapter: new PugAdapter({ inlineCssEnabled: true }),
+        options: {
+          strict: true,
+        },
+      },
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -24,6 +45,7 @@ import { DataSource } from 'typeorm';
     WalletModule,
     UserModule,
     PaymentModule,
+    EmailModule,
   ],
   controllers: [],
   providers: [],
