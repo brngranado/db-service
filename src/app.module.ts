@@ -10,10 +10,10 @@ import { DataSource } from 'typeorm';
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'root',
-      password: '123456',
+      username: 'admin',
+      password: 'admin',
       database: 'wallet',
-      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
       synchronize: true, // No usar en producción
     }),
