@@ -4,18 +4,22 @@ import { UserModule } from './user/user.module';
 import { PaymentModule } from './payment/payment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'admin',
-      password: 'admin',
-      database: 'wallet',
+      username: process.env.DB_USER || 'admin',
+      password: process.env.DB_PASS || 'admin',
+      database: process.env.DB_NAME || 'wallet',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
-      synchronize: true, // No usar en producción
+      migrations: [__dirname + 'src/migrations/**/*{.ts,.js}'],
+      synchronize: false,
+      migrationsRun: true,
+      keepConnectionAlive: true,
+      autoLoadEntities: true,
     }),
     WalletModule,
     UserModule,
