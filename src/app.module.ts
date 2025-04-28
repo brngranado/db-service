@@ -33,7 +33,7 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
       host: 'localhost',
       port: 3306,
       username: process.env.DB_USER || 'root',
-      password: process.env.DB_PASS || '',
+      password: process.env.DB_PASS || 'admin',
       database: process.env.DB_NAME || 'wallet',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [__dirname + 'src/migrations/**/*{.ts,.js}'],
